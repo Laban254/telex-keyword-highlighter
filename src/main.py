@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import re
-from typing import List, Any
+from typing import List, Any, Dict
 from src.integration_json import INTEGRATION_JSON 
 
 app = FastAPI()
