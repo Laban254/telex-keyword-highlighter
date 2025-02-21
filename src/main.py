@@ -36,36 +36,57 @@ async def modify_message(request: ModifierRequest):
     modified_message = process_highlight(request.message, request.settings)
     return {"message": modified_message}
 
+# ANSI color codes for CLI styling
+COLOR_STYLES = {
+    "red": lambda word: f"\033[31m{word}\033[0m",
+    "green": lambda word: f"\033[32m{word}\033[0m",
+    "blue": lambda word: f"\033[34m{word}\033[0m",
+    "yellow": lambda word: f"\033[33m{word}\033[0m",
+    "bg_red": lambda word: f"\033[41m{word}\033[0m",
+    "bg_green": lambda word: f"\033[42m{word}\033[0m",
+    "bg_yellow": lambda word: f"\033[43m{word}\033[0m",
+    "bold": lambda word: f"**{word}**",
+    "italic": lambda word: f"*{word}*",
+    "uppercase": lambda word: word.upper(),
+}
+
 def process_highlight(message: str, settings: List[Setting]) -> str:
     """Applies keyword highlighting based on the settings provided."""
-    highlight_words, highlight_style = extract_settings(settings)
-    return apply_highlighting(message, highlight_words, highlight_style)
+    highlight_words, highlight_style, text_color, bg_color = extract_settings(settings)
+    return apply_highlighting(message, highlight_words, highlight_style, text_color, bg_color)
 
 def extract_settings(settings: List[Setting]) -> tuple:
-    """Extracts the words to highlight and the highlight style."""
+    """Extracts the words to highlight, styles, text color, and background color."""
     highlight_words = []
-    highlight_style = ["bold", "italic", "uppercase"]  
+    highlight_style = []
+    text_color = None
+    bg_color = None
 
     for setting in settings:
         if setting.label == "highlightWords":
             highlight_words = setting.default.split(",")
         elif setting.label == "highlightStyle":
-            highlight_style = setting.default.lower()
+            highlight_style = setting.default.split(",")
+        elif setting.label == "textColor":
+            text_color = setting.default
+        elif setting.label == "backgroundColor":
+            bg_color = setting.default
 
-    return highlight_words, highlight_style
+    return highlight_words, highlight_style, text_color, bg_color
 
-def apply_highlighting(message: str, keywords: List[str], style: str) -> str:
-    """Applies the chosen highlight style to keywords in the message."""
-
+def apply_highlighting(message: str, keywords: List[str], styles: List[str], text_color: str, bg_color: str) -> str:
+    """Applies multiple styles (bold, italic, uppercase, text color, background color) to keywords in the message."""
+    
     def style_word(match):
         word = match.group(0)
-        if style == "bold":
-            return f"**{word}**"
-        elif style == "italic":
-            return f"*{word}*"
-        elif style == "uppercase":
-            return word.upper()
-        return word  
+        for style in styles:
+            if style in COLOR_STYLES:
+                word = COLOR_STYLES[style](word)
+        if text_color in COLOR_STYLES:
+            word = COLOR_STYLES[text_color](word)
+        if bg_color in COLOR_STYLES:
+            word = COLOR_STYLES[bg_color](word)
+        return word
 
     if not keywords:
         return message  # Return original message if no keywords are provided
