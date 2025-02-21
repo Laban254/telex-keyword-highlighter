@@ -30,7 +30,7 @@ def get_integration_json():
     """Returns integration metadata."""
     return INTEGRATION_JSON
 
-@app.post("/target_url")
+@app.post("/highlight-message")
 async def modify_message(request: ModifierRequest):
     """Modifies incoming messages based on settings (Keyword Highlighter)."""
     modified_message = process_highlight(request.message, request.settings)
