@@ -61,7 +61,7 @@ def apply_highlighting(message: str, keywords: List[str], style: str) -> str:
     def style_word(match):
         word = match.group(0)
         if style == "bold":
-            return f"**{word}**"
+            return f"<span style='font-weight: bold;'>{word}</span>"
         elif style == "italic":
             return f"*{word}*"
         elif style == "uppercase":
