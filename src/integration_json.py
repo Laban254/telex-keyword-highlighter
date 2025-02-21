@@ -17,7 +17,7 @@ INTEGRATION_JSON = {
         "is_active": True,
         "key_features": [
             "Highlight specific words in messages.",
-            "Supports multiple highlight styles (bold, italic, uppercase).",
+            "Supports multiple highlight styles (bold, italic, uppercase, colors, background colors, emojis).",
             "Processes messages dynamically based on user settings."
         ],
         "permissions": {
@@ -39,10 +39,31 @@ INTEGRATION_JSON = {
                 "label": "highlightStyle",
                 "type": "string",
                 "required": True,
-                "default": "uppercase",
+                "default": "bold",
                 "description": "Set the style for highlighted words (bold, italic, uppercase)."
+            },
+            {
+                "label": "highlightColor",
+                "type": "string",
+                "required": False,
+                "default": "red",
+                "description": "Set the text color for highlighted words. Accepts hex codes or color names."
+            },
+            {
+                "label": "highlightBackgroundColor",
+                "type": "string",
+                "required": False,
+                "default": "yellow",
+                "description": "Set the background color for highlighted words. Accepts hex codes or color names."
+            },
+            {
+                "label": "highlightWithEmoji",
+                "type": "boolean",
+                "required": False,
+                "default": True,
+                "description": "Enable emoji-based keyword highlighting (adds relevant emojis before and after keywords)."
             }
         ],
-        "target_url": "https://keyword-highlighter-debug.onrender.com/highlight-message",
+        "target_url": "https://keyword-highlighter-debug.onrender.com/highlight-message"
     }
 }
