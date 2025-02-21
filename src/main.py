@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import re
-from typing import List, Any, Dict
-from src.integration_json import INTEGRATION_JSON 
+from typing import List, Any
+from src.integration_json import INTEGRATION_JSON  # Ensure this exists and is correctly formatted
 
 app = FastAPI()
 
@@ -30,45 +30,50 @@ def get_integration_json():
     """Returns integration metadata."""
     return INTEGRATION_JSON
 
-class ModifierRequest(BaseModel):
-    message: str
-    settings: Dict[str, Dict[str, Any]]  # Dictionary where each keyword has its own settings
-
 @app.post("/highlight-message")
 async def modify_message(request: ModifierRequest):
     """Modifies incoming messages based on settings (Keyword Highlighter)."""
     modified_message = process_highlight(request.message, request.settings)
     return {"message": modified_message}
 
-def process_highlight(message: str, settings: Dict[str, Dict[str, Any]]) -> str:
+def process_highlight(message: str, settings: List[Setting]) -> str:
     """Applies keyword highlighting based on the settings provided."""
-    keywords = list(settings.keys())  # Extract keywords from settings dictionary
-    return apply_highlighting(message, keywords, settings)
+    highlight_words, highlight_style = extract_settings(settings)
+    return apply_highlighting(message, highlight_words, highlight_style)
 
-def apply_highlighting(message: str, highlight_words, keyword_settings: Dict[str, Dict[str, Any]]) -> str:
-    """Applies custom highlight styles per keyword."""
-    
+def extract_settings(settings: List[Setting]) -> tuple:
+    """Extracts the words to highlight and the highlight style."""
+    highlight_words = []
+    highlight_style = "bold"  
+
+    for setting in settings:
+        if setting.label == "highlightWords":
+            highlight_words = setting.default.split(",")
+        elif setting.label == "highlightStyle":
+            highlight_style = setting.default.lower()
+
+    return highlight_words, highlight_style
+
+def apply_highlighting(message: str, keywords: List[str], style: str) -> str:
+    """Applies the chosen highlight style to keywords in the message."""
+
     def style_word(match):
-        word = match.group(0)  # Preserve original case
-        lower_word = word.lower()
-        settings = keyword_settings.get(lower_word, {})
-        styled_word = word
-        
-        if settings.get("emoji", False):
-            styled_word = f"🔥 {styled_word} 🔥"
-        if settings.get("bold", False):
-            styled_word = f"**{styled_word}**"
-        if settings.get("italic", False):
-            styled_word = f"*{styled_word}*"
-        if settings.get("uppercase", False):
-            styled_word = styled_word.upper()
-        
-        return styled_word
+        word = match.group(0)
+        if style == "bold":
+            return f"**{word}**"
+        elif style == "italic":
+            return f"*{word}*"
+        elif style == "uppercase":
+            return word.upper()
+        return word  
+
+    if not keywords:
+        return message  # Return original message if no keywords are provided
+
+    # Sort keywords to prioritize longer words first
+    keywords = sorted(set(keywords), key=len, reverse=True)
     
-    if not highlight_words:
-        return message
-    
-    keywords = sorted(highlight_words, key=len, reverse=True)
+    # Use a regex pattern that ensures whole-word matching
     pattern = r"\b(" + "|".join(map(re.escape, keywords)) + r")\b"
     modified_message = re.sub(pattern, style_word, message, flags=re.IGNORECASE)
 
