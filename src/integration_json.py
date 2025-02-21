@@ -17,7 +17,7 @@ INTEGRATION_JSON = {
         "is_active": True,
         "key_features": [
             "Highlight specific words in messages.",
-            "Supports multiple highlight styles (bold, italic, uppercase, colors, backgrounds).",
+            "Supports multiple highlight styles (bold, italic, uppercase).",
             "Processes messages dynamically based on user settings."
         ],
         "permissions": {
@@ -39,22 +39,8 @@ INTEGRATION_JSON = {
                 "label": "highlightStyle",
                 "type": "multi-select",
                 "required": True,
-                "default": "bold",
+                "default": "uppercase",
                 "description": "Set the style for highlighted words (bold, italic, uppercase)."
-            },
-            {
-                "label": "textColor",
-                "type": "multi-select",
-                "required": False,
-                "default": "red",
-                "description": "Set the text color for highlighted words (red, green, blue, yellow)."
-            },
-            {
-                "label": "backgroundColor",
-                "type": "multi-select",
-                "required": False,
-                "default": "bg_red",
-                "description": "Set the background color for highlighted words (bg_red, bg_green, bg_yellow)."
             }
         ],
         "target_url": "https://keyword-highlighter-debug.onrender.com/highlight-message",
