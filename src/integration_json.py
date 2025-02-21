@@ -15,15 +15,14 @@ INTEGRATION_JSON = {
             "app_url": "https://keyword-highlighter-debug.onrender.com/",
             "background_color": "#ffffff"
         },
-        "integration_category": "📢 Communication & Collaboration",
-        "integration_type": "🖍️ Modifier",
+        "integration_category": "Communication & Collaboration",
+        "integration_type": "Modifier",
         "is_active": True,
         "key_features": [
             "🔍 Instantly identifies and highlights specified words.",
             "🎨 Supports bold, italic, underline, strikethrough, uppercase, custom colors, and background highlights.",
             "⚙️ Users can define keywords and choose highlight styles.",
             "⚡ Works dynamically as messages are received.",
-            "🔗 Easily connects with Telex channels and other communication tools.",
             "📌 Ensures important words stand out for better message clarity."
         ],
         "permissions": {
