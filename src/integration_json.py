@@ -37,10 +37,11 @@ INTEGRATION_JSON = {
             },
             {
                 "label": "highlightStyle",
-                "type": "multi-select",
+                "type": "dropdown",  # Changed from multi-select to dropdown
                 "required": True,
                 "default": "uppercase",
-                "description": "Set the style for highlighted words (bold, italic, uppercase)."
+                "options": ["bold", "italic", "uppercase", "strikethrough", "underline", "monospace", "emoji"],
+                "description": "Choose a single style for highlighted words."
             }
         ],
         "target_url": "https://keyword-highlighter-debug.onrender.com/highlight-message",

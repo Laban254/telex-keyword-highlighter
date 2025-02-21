@@ -20,6 +20,7 @@ class Setting(BaseModel):
     type: str
     required: bool
     default: Any
+    options: List[str] = []  # Added to support dropdown options
 
 class ModifierRequest(BaseModel):
     message: str
@@ -44,7 +45,7 @@ def process_highlight(message: str, settings: List[Setting]) -> str:
 def extract_settings(settings: List[Setting]) -> tuple:
     """Extracts the words to highlight and the highlight style."""
     highlight_words = []
-    highlight_style = ["bold", "italic", "uppercase"]  
+    highlight_style = "bold"  # Default style
 
     for setting in settings:
         if setting.label == "highlightWords":
