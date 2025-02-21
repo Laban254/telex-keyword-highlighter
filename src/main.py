@@ -33,8 +33,11 @@ def get_integration_json():
     return INTEGRATION_JSON
 
 @app.post("/highlight-message")
-def highlight_text(request: HighlightRequest):
+async def highlight_text(request: HighlightRequest):
     """Highlights keywords in a given message based on user settings."""
+    data = await request.json()
+    print(f"Received request data: {data}")
+    # logging.debug(f"Received request data: {data}") 
     highlighted_message = process_highlight(request)
     return {
         "event_name": "message_highlighted",
