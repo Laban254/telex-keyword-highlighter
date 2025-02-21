@@ -37,10 +37,10 @@ INTEGRATION_JSON = {
             },
             {
                 "label": "highlightStyle",
-                "type": "dropdown",  # Changed from multi-select to dropdown
+                "type": "dropdown",  
                 "required": True,
                 "default": "uppercase",
-                "options": ["bold", "italic", "uppercase", "strikethrough", "underline", "monospace", "emoji"],
+                "options": ["bold", "italic", "uppercase", "strikethrough", "underline", "color", "background", "emoji"],
                 "description": "Choose a single style for highlighted words."
             }
         ],

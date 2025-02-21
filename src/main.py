@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import re
 from typing import List, Any
-from src.integration_json import INTEGRATION_JSON  # Ensure this exists and is correctly formatted
+from src.integration_json import INTEGRATION_JSON  
 
 app = FastAPI()
 
@@ -45,7 +45,7 @@ def process_highlight(message: str, settings: List[Setting]) -> str:
 def extract_settings(settings: List[Setting]) -> tuple:
     """Extracts the words to highlight and the highlight style."""
     highlight_words = []
-    highlight_style = "bold"  # Default style
+    highlight_style = "bold"  
 
     for setting in settings:
         if setting.label == "highlightWords":
@@ -63,24 +63,23 @@ def apply_highlighting(message: str, keywords: List[str], style: str) -> str:
         if style == "bold":
             return f"<span style='font-weight: bold;'>{word}</span>"
         elif style == "italic":
-            return f"*{word}*"
+            return f"<span style='font-style: italic;'>{word}</span>"
         elif style == "uppercase":
             return word.upper()
         elif style == "strikethrough":
-            return f"~~{word}~~"
+            return f"<span style='text-decoration: line-through;'>{word}</span>"
         elif style == "underline":
-            return f"<u>{word}</u>"  # HTML Underline
+            return f"<span style='text-decoration: underline;'>{word}</span>"
         elif style == "color":
-            return f'<span style="color: red;">{word}</span>'  # HTML Text Color
+            return f'<span style="color: red;">{word}</span>'
         elif style == "background":
-            return f'<span style="background-color: yellow;">{word}</span>'  # Highlight
-        elif style == "monospace":
-            return f"`{word}`"  # Code Formatting
+            return f'<span style="background-color: yellow;">{word}</span>'
         elif style == "emoji":
-            return f"🔥 {word} 🔥"
+            return f" {word} 🔥"
+        return word
 
     if not keywords:
-        return message  # Return original message if no keywords are provided
+        return message  
 
     # Sort keywords to prioritize longer words first
     keywords = sorted(set(keywords), key=len, reverse=True)
