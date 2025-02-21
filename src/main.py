@@ -70,9 +70,9 @@ def apply_highlighting(message: str, keywords: List[str], style: str) -> str:
             return f"<span style='text-decoration: line-through;'>{word}</span>"
         elif style == "underline":
             return f"<span style='text-decoration: underline;'>{word}</span>"
-        elif style == "color":
+        elif style == "red-color":
             return f'<span style="color: red;">{word}</span>'
-        elif style == "background":
+        elif style == "yellow-background":
             return f'<span style="background-color: yellow;">{word}</span>'
         elif style == "emoji":
             return f" {word} 🔥"

@@ -39,8 +39,8 @@ INTEGRATION_JSON = {
                 "label": "highlightStyle",
                 "type": "dropdown",  
                 "required": True,
-                "default": "uppercase",
-                "options": ["bold", "italic", "uppercase", "strikethrough", "underline", "color", "background", "emoji"],
+                "default": "red-color",
+                "options": ["bold", "italic", "uppercase", "strikethrough", "underline", "red-color", "yellow-background", "emoji"],
                 "description": "Choose a single style for highlighted words."
             }
         ],
