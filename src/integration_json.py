@@ -17,7 +17,7 @@ INTEGRATION_JSON = {
         "is_active": True,
         "key_features": [
             "Highlight specific words in messages.",
-            "Supports multiple highlight styles (bold, italic, uppercase, emojis).",
+            "Supports multiple highlight styles (bold, italic, uppercase).",
             "Processes messages dynamically based on user settings."
         ],
         "permissions": {
@@ -31,59 +31,18 @@ INTEGRATION_JSON = {
             {
                 "label": "highlightWords",
                 "type": "multi-select",
-                "description": "Select words to highlight.",
                 "required": True,
-                "default": "important,urgent"
+                "default": "important,urgent",
+                "description": "Set the words that need to be highlighted."
             },
             {
-                "label": "highlightImportantBold",
-                "type": "checkbox",
-                "description": "Apply bold to 'important'",
-                "default": True
-            },
-            {
-                "label": "highlightImportantItalic",
-                "type": "checkbox",
-                "description": "Apply italic to 'important'",
-                "default": False
-            },
-            {
-                "label": "highlightImportantUppercase",
-                "type": "checkbox",
-                "description": "Make 'important' uppercase",
-                "default": False
-            },
-            {
-                "label": "highlightImportantEmoji",
-                "type": "checkbox",
-                "description": "Use emoji for 'important'",
-                "default": True
-            },
-            {
-                "label": "highlightUrgentBold",
-                "type": "checkbox",
-                "description": "Apply bold to 'urgent'",
-                "default": False
-            },
-            {
-                "label": "highlightUrgentItalic",
-                "type": "checkbox",
-                "description": "Apply italic to 'urgent'",
-                "default": True
-            },
-            {
-                "label": "highlightUrgentUppercase",
-                "type": "checkbox",
-                "description": "Make 'urgent' uppercase",
-                "default": True
-            },
-            {
-                "label": "highlightUrgentEmoji",
-                "type": "checkbox",
-                "description": "Use emoji for 'urgent'",
-                "default": False
+                "label": "highlightStyle",
+                "type": "string",
+                "required": True,
+                "default": "uppercase",
+                "description": "Set the style for highlighted words (bold, italic, uppercase)."
             }
         ],
-        "target_url": "https://keyword-highlighter-debug.onrender.com/highlight-message"
+        "target_url": "https://keyword-highlighter-debug.onrender.com/highlight-message",
     }
 }
