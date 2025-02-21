@@ -11,7 +11,7 @@ INTEGRATION_JSON = {
                 "✨ Keyword Highlighter is an intelligent tool that automatically detects and highlights "
                 "specified keywords in messages. It enhances readability and ensures important information stands out."
             ),
-            "app_logo": "https://img.icons8.com/?size=100&id=XGSm8Ac3FGzj&format=png&color=000000",  # Ensure this URL is correct
+            "app_logo": "https://img.icons8.com/?size=100&id=wWQJ5na5fQNZ&format=png&color=000000",  # Ensure this URL is correct
             "app_url": "https://keyword-highlighter-debug.onrender.com/",
             "background_color": "#ffffff"
         },
@@ -19,19 +19,19 @@ INTEGRATION_JSON = {
         "integration_type": "🖍️ Modifier",
         "is_active": True,
         "key_features": [
-            "🔍 <strong>Automatic Keyword Detection</strong> - Instantly identifies and highlights specified words.",
-            "🎨 <strong>Multiple Highlight Styles</strong> - Supports bold, italic, underline, strikethrough, uppercase, custom colors, and background highlights.",
-            "⚙️ <strong>Customizable Preferences</strong> - Users can define keywords and choose highlight styles.",
-            "⚡ <strong>Real-time Processing</strong> - Works dynamically as messages are received.",
-            "🔗 <strong>Seamless Integration</strong> - Easily connects with Telex channels and other communication tools.",
-            "📌 <strong>Enhanced Readability</strong> - Ensures important words stand out for better message clarity."
+            "🔍 Instantly identifies and highlights specified words.",
+            "🎨 Supports bold, italic, underline, strikethrough, uppercase, custom colors, and background highlights.",
+            "⚙️ Users can define keywords and choose highlight styles.",
+            "⚡ Works dynamically as messages are received.",
+            "🔗 Easily connects with Telex channels and other communication tools.",
+            "📌 Ensures important words stand out for better message clarity."
         ],
         "permissions": {
             "events": [
-                "📥 <strong>Receive Messages</strong> - Captures incoming messages from Telex channels.",
-                "📝 <strong>Process & Highlight</strong> - Identifies keywords and applies selected highlight styles.",
-                "📤 <strong>Send Enhanced Messages</strong> - Returns the formatted message with highlighted words.",
-                "🔧 <strong>User Configurable</strong> - Supports user-defined keyword lists and highlight preferences."
+                "📥 Captures incoming messages from Telex channels.",
+                "📝 Identifies keywords and applies selected highlight styles.",
+                "📤 Returns the formatted message with highlighted words.",
+                "🔧 Supports user-defined keyword lists and highlight preferences."
             ]
         },
         "settings": [
