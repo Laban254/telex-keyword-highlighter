@@ -50,7 +50,7 @@ def extract_settings(settings: List[Setting]) -> tuple:
         if setting.label == "highlightWords":
             highlight_words = setting.default.split(",")
         elif setting.label == "highlightStyle":
-            highlight_style = setting.default.lower()
+            highlight_style = setting.default.split(",")
 
     return highlight_words, highlight_style
 
