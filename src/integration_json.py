@@ -3,12 +3,16 @@ INTEGRATION_JSON = {
         "author": "Laban Kibet",
         "date": {
             "created_at": "2025-02-13",
-            "updated_at": "2025-02-13"
+            "updated_at": "2025-02-21"
         },
         "descriptions": {
-            "app_description": "A keyword highlighter bot that processes messages and highlights specific keywords.",
-            "app_logo": "https://media.tifi.tv/telexbucket/public/logos/formatter.png",
             "app_name": "Keyword Highlighter",
+            "app_description": (
+                "Keyword Highlighter is an intelligent message processing bot that automatically detects and highlights "
+                "specified keywords in messages. Designed for seamless integration, it enhances readability and ensures "
+                "important information stands out."
+            ),
+            "app_logo": "https://media.tifi.tv/telexbucket/public/logos/highlighter_v2.png",  # Updated logo
             "app_url": "https://keyword-highlighter-debug.onrender.com/",
             "background_color": "#ffffff"
         },
@@ -16,15 +20,19 @@ INTEGRATION_JSON = {
         "integration_type": "modifier",
         "is_active": True,
         "key_features": [
-            "Highlight specific words in messages.",
-            "Supports multiple highlight styles (bold, italic, uppercase).",
-            "Processes messages dynamically based on user settings."
+            "🔍 **Automatic Keyword Detection** – Instantly identifies and highlights specified words in messages.",
+            "🎨 **Multiple Highlight Styles** – Supports bold, italic, underline, strikethrough, uppercase, custom colors, and background highlights.",
+            "⚙️ **Customizable Preferences** – Users can define keywords and choose highlight styles.",
+            "⚡ **Real-time Processing** – Works dynamically to highlight words as messages are received.",
+            "🔗 **Seamless Integration** – Easily integrates with Telex channels and other communication platforms.",
+            "📌 **Enhanced Readability** – Ensures important words and phrases stand out for better message clarity."
         ],
         "permissions": {
             "events": [
-                "Receive messages from Telex channels.",
-                "Highlight specified keywords in messages.",
-                "Send highlighted messages back to the channel."
+                "📥 **Receive Messages** – Captures incoming messages from Telex channels.",
+                "📝 **Process & Highlight** – Identifies keywords and applies selected highlight styles.",
+                "📤 **Send Enhanced Messages** – Returns the formatted message with highlighted words.",
+                "🔧 **User Configurable** – Supports user-defined keyword lists and highlight preferences."
             ]
         },
         "settings": [
@@ -33,15 +41,18 @@ INTEGRATION_JSON = {
                 "type": "multi-select",
                 "required": True,
                 "default": "important,urgent",
-                "description": "Set the words that need to be highlighted."
+                "description": "Specify keywords to be highlighted in messages."
             },
             {
                 "label": "highlightStyle",
-                "type": "dropdown",  
+                "type": "dropdown",
                 "required": True,
                 "default": "red-color",
-                "options": ["bold", "italic", "uppercase", "strikethrough", "underline", "red-color", "yellow-background", "emoji"],
-                "description": "Choose a single style for highlighted words."
+                "options": [
+                    "bold", "italic", "uppercase", "strikethrough", "underline",
+                    "red-color", "yellow-background", "emoji"
+                ],
+                "description": "Choose a highlight style for selected keywords."
             }
         ],
         "target_url": "https://keyword-highlighter-debug.onrender.com/highlight-message",
