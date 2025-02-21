@@ -65,7 +65,18 @@ def apply_highlighting(message: str, keywords: List[str], style: str) -> str:
             return f"*{word}*"
         elif style == "uppercase":
             return word.upper()
-        return word  
+        elif style == "strikethrough":
+            return f"~~{word}~~"
+        elif style == "underline":
+            return f"<u>{word}</u>"  # HTML Underline
+        elif style == "color":
+            return f'<span style="color: red;">{word}</span>'  # HTML Text Color
+        elif style == "background":
+            return f'<span style="background-color: yellow;">{word}</span>'  # Highlight
+        elif style == "monospace":
+            return f"`{word}`"  # Code Formatting
+        elif style == "emoji":
+            return f"🔥 {word} 🔥"
 
     if not keywords:
         return message  # Return original message if no keywords are provided
