@@ -20,7 +20,7 @@ class Setting(BaseModel):
     type: str
     required: bool
     default: Any
-    options: List[str] = []  # Added to support dropdown options
+    options: List[str] = [] 
 
 class ModifierRequest(BaseModel):
     message: str

@@ -11,7 +11,7 @@ INTEGRATION_JSON = {
                 "✨ Keyword Highlighter is a tool that automatically detects and highlights "
                 "specified keywords in channel messages. It enhances readability and ensures important information stands out."
             ),
-            "app_logo": "https://img.icons8.com/?size=100&id=wWQJ5na5fQNZ&format=png&color=000000",  # Ensure this URL is correct
+            "app_logo": "https://img.icons8.com/?size=100&id=wWQJ5na5fQNZ&format=png&color=000000",  
             "app_url": "https://keyword-highlighter-debug.onrender.com/",
             "background_color": "#ffffff"
         },
