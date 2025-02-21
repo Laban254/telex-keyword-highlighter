@@ -9,7 +9,7 @@ INTEGRATION_JSON = {
             "app_description": "A keyword highlighter bot that processes messages and highlights specific keywords.",
             "app_logo": "https://media.tifi.tv/telexbucket/public/logos/formatter.png",
             "app_name": "Keyword Highlighter",
-            "app_url": "https://keyword-highlighter.onrender.com/",
+            "app_url": "https://keyword-highlighter-debug.onrender.com/",
             "background_color": "#ffffff"
         },
         "integration_category": "Communication & Collaboration",
@@ -43,6 +43,6 @@ INTEGRATION_JSON = {
                 "description": "Set the style for highlighted words (bold, italic, uppercase)."
             }
         ],
-        "target_url": "https://keyword-highlighter.onrender.com/highlight-message",
+        "target_url": "https://keyword-highlighter-debug.onrender.com/highlight-message",
     }
 }
