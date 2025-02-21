@@ -44,7 +44,7 @@ def process_highlight(message: str, settings: List[Setting]) -> str:
 def extract_settings(settings: List[Setting]) -> tuple:
     """Extracts the words to highlight and the highlight style."""
     highlight_words = []
-    highlight_style = "bold"  
+    highlight_style = ["bold", "italic", "uppercase"]  
 
     for setting in settings:
         if setting.label == "highlightWords":
