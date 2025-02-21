@@ -37,7 +37,7 @@ INTEGRATION_JSON = {
             },
             {
                 "label": "highlightStyle",
-                "type": "multi-select",
+                "type": "checkbox",
                 "required": True,
                 "default": "uppercase",
                 "description": "Set the style for highlighted words (bold, italic, uppercase)."
