@@ -17,7 +17,7 @@ INTEGRATION_JSON = {
         "is_active": True,
         "key_features": [
             "Highlight specific words in messages.",
-            "Supports multiple highlight styles (bold, italic, uppercase, colors, background colors, emojis).",
+            "Supports multiple highlight styles (bold, italic, uppercase, emojis).",
             "Processes messages dynamically based on user settings."
         ],
         "permissions": {
@@ -31,37 +31,57 @@ INTEGRATION_JSON = {
             {
                 "label": "highlightWords",
                 "type": "multi-select",
+                "description": "Select words to highlight.",
                 "required": True,
-                "default": "important,urgent",
-                "description": "Set the words that need to be highlighted."
+                "default": "important,urgent"
             },
             {
-                "label": "highlightStyle",
-                "type": "string",
-                "required": True,
-                "default": "bold",
-                "description": "Set the style for highlighted words (bold, italic, uppercase)."
+                "label": "highlightImportantBold",
+                "type": "checkbox",
+                "description": "Apply bold to 'important'",
+                "default": True
             },
             {
-                "label": "highlightColor",
-                "type": "string",
-                "required": False,
-                "default": "red",
-                "description": "Set the text color for highlighted words. Accepts hex codes or color names."
+                "label": "highlightImportantItalic",
+                "type": "checkbox",
+                "description": "Apply italic to 'important'",
+                "default": False
             },
             {
-                "label": "highlightBackgroundColor",
-                "type": "string",
-                "required": False,
-                "default": "yellow",
-                "description": "Set the background color for highlighted words. Accepts hex codes or color names."
+                "label": "highlightImportantUppercase",
+                "type": "checkbox",
+                "description": "Make 'important' uppercase",
+                "default": False
             },
             {
-                "label": "highlightWithEmoji",
-                "type": "boolean",
-                "required": False,
-                "default": True,
-                "description": "Enable emoji-based keyword highlighting (adds relevant emojis before and after keywords)."
+                "label": "highlightImportantEmoji",
+                "type": "checkbox",
+                "description": "Use emoji for 'important'",
+                "default": True
+            },
+            {
+                "label": "highlightUrgentBold",
+                "type": "checkbox",
+                "description": "Apply bold to 'urgent'",
+                "default": False
+            },
+            {
+                "label": "highlightUrgentItalic",
+                "type": "checkbox",
+                "description": "Apply italic to 'urgent'",
+                "default": True
+            },
+            {
+                "label": "highlightUrgentUppercase",
+                "type": "checkbox",
+                "description": "Make 'urgent' uppercase",
+                "default": True
+            },
+            {
+                "label": "highlightUrgentEmoji",
+                "type": "checkbox",
+                "description": "Use emoji for 'urgent'",
+                "default": False
             }
         ],
         "target_url": "https://keyword-highlighter-debug.onrender.com/highlight-message"
