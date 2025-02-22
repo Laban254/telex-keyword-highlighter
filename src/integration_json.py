@@ -6,7 +6,7 @@ INTEGRATION_JSON = {
             "updated_at": "2025-02-21"
         },
         "descriptions": {
-            "app_name": "🖍️ Keyword Highlighter",
+            "app_name": "Keyword Highlighter",
             "app_description": (
                 "✨ Keyword Highlighter is a tool that automatically detects and highlights "
                 "specified keywords in channel messages. It enhances readability and ensures important information stands out."
@@ -16,7 +16,7 @@ INTEGRATION_JSON = {
             "background_color": "#ffffff"
         },
         "integration_category": "Communication & Collaboration",
-        "integration_type": "Modifier",
+        "integration_type": "modifier",
         "is_active": True,
         "key_features": [
             "🔍 Instantly identifies and highlights specified words.",
