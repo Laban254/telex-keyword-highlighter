@@ -37,6 +37,11 @@ async def modify_message(request: ModifierRequest):
     modified_message = process_highlight(request.message, request.settings)
     return {"message": modified_message}
 
+# def process_highlight(message: str, settings: List[Setting]) -> str:
+#     """Applies keyword highlighting based on the settings provided."""
+#     highlight_words, highlight_style = extract_settings(settings)
+#     return apply_highlighting(message, highlight_words, highlight_style)
+
 def process_highlight(message: str, settings: List[Setting]) -> str:
     """Applies keyword highlighting based on the settings provided."""
     highlight_words, highlight_style = extract_settings(settings)
