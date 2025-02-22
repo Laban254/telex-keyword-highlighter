@@ -61,7 +61,10 @@ def extract_settings(settings: List[Setting]) -> tuple:
 
     for setting in settings:
         if setting.label == "highlightWords":
-            highlight_words = setting.default.split(",")
+            if isinstance(setting.default, str):
+                highlight_words = setting.default.split(",")
+            elif isinstance(setting.default, list):
+                highlight_words = setting.default  
         elif setting.label == "highlightStyle":
             highlight_style = setting.default.lower()
 
