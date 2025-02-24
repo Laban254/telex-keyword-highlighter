@@ -1,6 +1,6 @@
 ### **Keyword Highlighter 🚀**
 
-A **Telex integration** that processes messages and highlights specific keywords based on user-defined settings.
+A **[Telex](https://telex.im/) integration** that processes messages and highlights specific keywords based on user-defined settings.
 
 
 
